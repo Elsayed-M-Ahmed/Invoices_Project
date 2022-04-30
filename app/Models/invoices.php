@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class invoices extends Model
+{
+    use HasFactory;
+
+    use softDeletes;
+    protected $guarded = [];
+
+    protected $table = 'invoices'; 
+
+    protected $dates = ['deleted_at'];
+    
+    public function department() {
+        return $this->belongsTo(departments::class);
+    } 
+}
